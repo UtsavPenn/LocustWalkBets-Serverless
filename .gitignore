@@ -17,5 +17,7 @@ var/
 .installed.cfg
 *.egg
 
+.ipynb_*
+
 # Serverless directories
 .serverless

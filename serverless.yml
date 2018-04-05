@@ -138,6 +138,28 @@ resources:
           - 
             AttributeName: "match_id"
             AttributeType: "S"
+          -
+            AttributeName: "bet_id"
+            AttributeType: "S"
+        KeySchema:
+          - 
+            AttributeName: "bet_id"
+            KeyType: "HASH"
+          -
+            AttributeName: "match_id"
+            KeyType: "RANGE"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: "BetsTable"
+
+    MatchInfoTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:        
+          - 
+            AttributeName: "match_id"
+            AttributeType: "N"
         KeySchema:
           - 
             AttributeName: "match_id"
@@ -145,7 +167,8 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
-        TableName: "BetsTable"
+        TableName: "MatchInfoTable"
+
 
 
           

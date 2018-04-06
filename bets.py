@@ -16,7 +16,7 @@ class BetModel(Model):
     user_id = UnicodeAttribute()
     bet_amount = NumberAttribute()
     bet_for = UnicodeAttribute()
-
+    bet_paid_status = NumberAttribute()
 
 def show(event, context):
 	bets = []
@@ -25,6 +25,7 @@ def show(event, context):
 					'user_id': bet.user_id,
 					'bet_amount':bet.bet_amount,
 					'bet_for':bet.bet_for,
+					'bet_paid_status':bet.bet_paid_status,
 					'match_id': bet.match_id})
 
 	response = {

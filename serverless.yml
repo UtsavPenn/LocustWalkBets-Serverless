@@ -66,6 +66,12 @@ functions:
     events:
       - http: GET users
 
+  bets_index:
+    handler: bets.show
+    events:
+      - http: GET bets
+
+
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

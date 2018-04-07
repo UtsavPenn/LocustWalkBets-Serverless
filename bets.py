@@ -1,22 +1,7 @@
 import setup
 from utils import jsonify
 
-from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute, NumberAttribute
-
-class BetModel(Model):
-    """
-    A bet identified by bet_id
-    """
-    class Meta:
-        table_name = 'BetsTable'
-        region = 'us-east-1'
-    bet_id = UnicodeAttribute(hash_key=True)
-    match_id =  NumberAttribute()
-    user_id = UnicodeAttribute()
-    bet_amount = NumberAttribute()
-    bet_for = UnicodeAttribute()
-    bet_paid_status = NumberAttribute()
+from models import BetModel
 
 def show(event, context):
 	bets = []

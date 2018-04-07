@@ -68,11 +68,16 @@ functions:
           path: users
           method: get
           authorizer: aws_iam
+          cors: true
 
   bets_index:
     handler: bets.show
     events:
-      - http: GET bets
+      - http: 
+          path: bets
+          method: get
+          authorizer: aws_iam
+          cors: true
 
 
 

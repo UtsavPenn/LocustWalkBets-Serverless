@@ -64,7 +64,10 @@ functions:
   users_index:
     handler: users.show
     events:
-      - http: GET users
+      - http: 
+          path: users
+          method: get
+          authorizer: aws_iam
 
   bets_index:
     handler: bets.show

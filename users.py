@@ -1,34 +1,18 @@
 import setup
-from utils import jsonify
-
+from utils import responsify
 from models import UserModel
 
-
 def show(event, context):
+
     users = []
     for user in UserModel.scan():
         users.append({'user_id': user.user_id,
                       'account_value': user.account_value,
                       'locked_value': user.locked_value})
 
-    response = {
-        "statusCode": 200,
-        "headers": {
-            "Access-Control-Allow-Origin": "*"
-        },
-        "body": jsonify({'users': users})
-    }
+    users = sorted(users, key=lambda x: float(x['account_value']), reverse=True)
+    for i, user in enumerate(users):
+        user['standing'] = i + 1
 
-    return response
+    return responsify(status_code=200, body={'users': users})
 
-
-def create(event, context):
-    pass
-
-
-def update(event, context):
-    pass
-
-
-def delete(event, context):
-    pass

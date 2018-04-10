@@ -1,5 +1,5 @@
 from pynamodb.models import Model
-from pynamodb.attributes import UnicodeAttribute, NumberAttribute
+from pynamodb.attributes import UnicodeAttribute, NumberAttribute,BooleanAttribute
 
 
 class BetModel(Model):
@@ -27,3 +27,16 @@ class UserModel(Model):
     user_id = UnicodeAttribute(hash_key=True)
     account_value = NumberAttribute()
     locked_value = NumberAttribute()
+
+
+class MatchInfoModel(Model):
+    """
+    """
+    class Meta:
+        table_name = 'MatchInfoTable'
+        region = 'us-east-1'
+    match_id = UnicodeAttribute(hash_key=True)
+    home_team = UnicodeAttribute()
+    away_team = UnicodeAttribute()
+    start_time = UnicodeAttribute()
+    bets_processed = BooleanAttribute(default=False)

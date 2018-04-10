@@ -79,6 +79,15 @@ functions:
           authorizer: aws_iam
           cors: true
 
+  matches_index:
+    handler: matches.show
+    events:
+      - http: GET matches
+  standings:
+    handler: users.show_standings
+    events:
+      - http: GET standings
+
 
 
 #    The following are a few example events you can configure

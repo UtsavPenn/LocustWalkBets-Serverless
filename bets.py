@@ -1,5 +1,5 @@
 import setup
-from utils import jsonify
+from utils import responsify
 
 from models import BetModel
 
@@ -13,12 +13,8 @@ def show(event, context):
 					'bet_paid_status':bet.bet_paid_status,
 					'match_id': bet.match_id})
 
-	response = {
-        "statusCode": 200,
-        "body": jsonify({'bets': bets})
-    }
+	return responsify(status_code=200, body={'bets': bets})
 
-	return response
 
 
 

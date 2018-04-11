@@ -7,10 +7,10 @@ from models import MatchInfoModel
 def show(event,context):
 	matches = []
 	for match in MatchInfoModel.scan():
-		matches.append({#	'match_id': MatchInfoModel.match_id,
-					'home_team': MatchInfoModel.home_team,
-					'away_team': MatchInfoModel.away_team,
-					'start_time': MatchInfoModel.start_time,
-					'bets_processed': MatchInfoModel.bets_processed})
+		matches.append({	'match_id': match.match_id,
+					'home_team': match.home_team,
+					'away_team': match.away_team,
+					'start_time': match.start_time,
+					'bets_processed': match.bets_processed})
 
 	return responsify(status_code=200, body={'matches': matches})

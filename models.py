@@ -35,7 +35,7 @@ class MatchInfoModel(Model):
     class Meta:
         table_name = 'MatchInfoTable'
         region = 'us-east-1'
-    match_id = UnicodeAttribute(hash_key=True)
+    match_id = NumberAttribute(hash_key=True)
     home_team = UnicodeAttribute()
     away_team = UnicodeAttribute()
     start_time = UnicodeAttribute()
